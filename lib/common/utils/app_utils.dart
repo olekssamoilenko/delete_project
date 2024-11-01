@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simple_grid/simple_grid.dart';
 
+import '../../theme/theme.dart';
+
 //wrapper for grid cell
 SpGridItem buildSpGridItem(
   BuildContext context, {
@@ -23,6 +25,18 @@ SpGridItem buildSpGridItem(
         const SizedBox(height: 30),
         child,
       ],
+    ),
+  );
+}
+
+void showSuccessSnackBar(
+  BuildContext context,
+) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text('Sign up success'),
+      backgroundColor: greenColor,
+      behavior: SnackBarBehavior.floating,
     ),
   );
 }

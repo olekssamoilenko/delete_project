@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:form_demo/common/widgets/gradient_button.dart';
 import 'package:form_demo/features/sign_in/bloc/password_validation_bloc.dart';
 import 'package:form_demo/theme/assets.dart';
-import 'package:form_demo/theme/theme.dart';
 
+import '../../../common/utils/app_utils.dart';
 import '../../../common/utils/validation_utils.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/validator_status_widget.dart';
@@ -114,12 +114,7 @@ class SignInScreenState extends State<SignInScreen> {
       _updateValidationStates();
       //todo: refactor
       if (_emailValidationState == ValidationState.valid && _passwordValidationState == ValidationState.valid) {
-        var snackBar = SnackBar(
-          content: Text('Success'),
-          backgroundColor: greenColor,
-          behavior: SnackBarBehavior.floating,
-        );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        showSuccessSnackBar(context);
       }
     });
   }
